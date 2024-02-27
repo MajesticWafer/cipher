@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cipher 4</title>
+</head>
+<body>
+    <h2>Cipher 4</h2>
+    <form>
+        <label for="input">Input:</label>
+        <input type="text" id="input" name="input">
+        <button type="button" onclick="encode()">Encode</button>
+        <label for="output">Output:</label>
+        <input type="text" id="output" name="output" readonly>
+    </form>
+
+    <script>
+        function encode() {
+            const input = document.getElementById('input').value;
+            const cipher = 'usprtboaglwvqfhczyiemdnzkj';
+            let output = '';
+            for (let i = 0; i < input.length; i++) {
+                const index = input.charCodeAt(i) - 97;
+                if (index >= 0 && index < 26) {
+                    output += cipher[index];
+                } else {
+                    output += input[i];
+                }
+            }
+            document.getElementById('output').value = output;
+        }
+    </script>
+</body>
+</html>
