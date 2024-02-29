@@ -2,7 +2,7 @@
 <html>
 <head>
     <link rel="stylesheet" href="styles.css">
-    <title>Cipher 1</title
+    <title>Cipher 1</title>
 </head>
 <body>
     <h2>Cipher 1</h2>
@@ -14,6 +14,7 @@
         <input type="text" id="output" name="output" readonly>
         <br>
         <button type="button" onclick="encode()">Encode</button>
+        <button type="button" onclick="decode()">Decode</button>
     </form>
 
     <script>
@@ -30,6 +31,21 @@
                 }
             }
             document.getElementById('output').value = output;
+        }
+
+        function decode() {
+            const input = document.getElementById('output').value;
+            const cipher = 'jklmnopqrstuvwxyzabcdefghi';
+            let output = '';
+            for (let i = 0; i < input.length; i++) {
+                const index = cipher.indexOf(input[i]);
+                if (index >= 0 && index < 26) {
+                    output += String.fromCharCode(index + 97);
+                } else {
+                    output += input[i];
+                }
+            }
+            document.getElementById('input').value = output;
         }
     </script>
 </body>
